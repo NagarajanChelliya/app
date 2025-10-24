@@ -33,8 +33,8 @@ public class PipelineStack extends Stack {
 
         CodeStarConnectionsSourceAction sourceAction = CodeStarConnectionsSourceAction.Builder.create()
                 .actionName("GitHub_Source")
-                .owner("YOUR_GITHUB_USERNAME") // replace
-                .repo("YOUR_REPO_NAME")        // replace
+                .owner("NagarajanChelliya") // replace
+                .repo("app")        // replace
                 .branch("main")
                 .connectionArn("arn:aws:codeconnections:us-east-1:242332171291:connection/a9730499-9831-4922-a23e-79ab6c36cea2")
                 .output(sourceOutput)
