@@ -13,7 +13,7 @@ public class AppApp {
                // new AppStack(app, "AppStack", StackProps.builder()
 
                            //     .build());
-                new AppStack(app, "S3BucketStack");
+               // new AppStack(app, "AppStack");
                 new PipelineStack(app, "PipelineStack");
 
                 app.synth();
