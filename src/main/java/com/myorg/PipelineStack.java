@@ -30,7 +30,7 @@ public class PipelineStack extends Stack {
         GitHubSourceAction source = GitHubSourceAction.Builder.create()
                 .actionName("GitHub_Source")
                 .owner("NagarajanChelliya") // replace with your GitHub username
-                .repo("PTSBDevops")        // replace with your repo
+                .repo("app")        // replace with your repo
                 .oauthToken("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") // store token in Secrets Manager
                 //.oauthToken(SecretValue.secretsManager("GITHUB_TOKEN")) // store token in Secrets Manager
                 .branch("main")
@@ -70,3 +70,4 @@ public class PipelineStack extends Stack {
         pipeline.addStage(stage -> stage.stageName("BuildDeploy").actions(Arrays.asList(buildAction)));
     }
 }
+
