@@ -23,3 +23,5 @@ phases:
        # fi
       - echo "Deploying CDK stack..."
       - cdk deploy AppStack --require-approval never
+      - echo "Deploying CDK stack..."
+
