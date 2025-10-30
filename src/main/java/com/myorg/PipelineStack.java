@@ -61,7 +61,7 @@ public class PipelineStack extends Stack {
                                         "mvn clean install"
                                 )),
                                 "build", Map.of("commands", List.of(
-                                        "cdk deploy PipelineStack --require-approval=never"
+                                        "cdk deploy AppStack --require-approval=never"
                                 ))
                         )
                 )))
