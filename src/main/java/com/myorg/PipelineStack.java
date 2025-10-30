@@ -71,7 +71,7 @@ public class PipelineStack extends Stack {
         
   // Build & Deploy Stage
         PipelineProject buildProject = PipelineProject.Builder.create(this, "CDKBuildProject")
-                .buildSpec(BuildSpec.fromSourceFilename("buildspec.yaml")) // ✅ External file
+                .buildSpec(BuildSpec.fromSourceFilename("buildspec.yml")) // ✅ External file
                 .environment(BuildEnvironment.builder()
                         .buildImage(LinuxBuildImage.STANDARD_7_0)
                         .computeType(ComputeType.SMALL)
@@ -91,7 +91,7 @@ public class PipelineStack extends Stack {
                 .build());
 
 
-                
+
         // ----------------------------------------------------------------------
 
         // ----------------------------------------------------------------------
