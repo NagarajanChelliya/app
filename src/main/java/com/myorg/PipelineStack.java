@@ -69,7 +69,7 @@ public class PipelineStack extends Stack {
                 .buildSpec(BuildSpec.fromSourceFilename("buildspec.yml")) // ✅ External file
                 .environment(BuildEnvironment.builder()
                         .buildImage(LinuxBuildImage.STANDARD_7_0)
-                        .computeType(BuildEnvironmentComputeType.SMALL)
+                        .computeType(ComputeType.SMALL)
                         .build())
                 .build();
         
