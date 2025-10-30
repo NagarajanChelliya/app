@@ -21,7 +21,7 @@ public class AppApp {
 
                            //     .build());
                new AppStack(app, "AppStack");
-              //new PipelineStack(app, "PipelineStack");
+              new PipelineStack(app, "PipelineStack");
                /*
                new PipelineStack(app, "PipelineStack", StackProps.builder()
         .env(Environment.builder().account("242332171291").region("us-east-1").build())
