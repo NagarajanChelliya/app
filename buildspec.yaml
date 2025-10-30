@@ -16,10 +16,10 @@ phases:
       - mvn exec:java -Dexec.mainClass="com.myorg.AppApp" -Dexec.cleanupDaemonThreads=false | tee cdk-nag-output.log
       - |
         if grep -q "AwsSolutions*" cdk-nag-output.log; then
-          echo "❌ CDK-Nag violations found! Stopping deployment."
+          echo " CDK-Nag violations found! Stopping deployment."
           exit 1
         else
-          echo "✅ No violations found."
+          echo " No violations found."
         fi
       - echo "Deploying CDK stack..."
       - cdk deploy AppStack --require-approval never
