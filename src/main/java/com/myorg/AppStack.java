@@ -17,7 +17,7 @@ public class AppStack extends Stack {
 
         // Create an S3 bucket
         Bucket bucket = Bucket.Builder.create(this, "MyDemoBucket")
-        .bucketName("nagarajan-" + this.getAccount() + "-" + this.getRegion())
+        .bucketName("nagarajan-1-" + this.getAccount() + "-" + this.getRegion())
                 .versioned(true) // optional, enables versioning
                 .removalPolicy(software.amazon.awscdk.RemovalPolicy.DESTROY) // optional, for dev/testing
                 .build();

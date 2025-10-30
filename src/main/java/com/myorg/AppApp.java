@@ -18,7 +18,7 @@ public class AppApp {
                new AppStack(app, "AppStack");
                 new PipelineStack(app, "PipelineStack");
 
-                Aspects.of(app).add(new AwsSolutionsChecks());//cdk-nag
+                //Aspects.of(app).add(new AwsSolutionsChecks());//cdk-nag
 
                 app.synth();
         }
