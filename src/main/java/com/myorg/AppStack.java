@@ -16,7 +16,7 @@ public class AppStack extends Stack {
         super(scope, id, props);
 
         // Create an S3 bucket
-        Bucket bucket = Bucket.Builder.create(this, "MySimpleBucket")
+        Bucket bucket = Bucket.Builder.create(this, "myuiniquebucketname123456111")
                 .versioned(true) // optional, enables versioning
                 .removalPolicy(software.amazon.awscdk.RemovalPolicy.DESTROY) // optional, for dev/testing
                 .build();
