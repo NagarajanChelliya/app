@@ -15,7 +15,7 @@ phases:
       - echo "Running cdk-nag compliance checks..."
       - mvn exec:java -Dexec.mainClass="com.myorg.AppApp" -Dexec.cleanupDaemonThreads=false | tee cdk-nag-output.log
       - |
-        if grep -q "NagViolation" cdk-nag-output.log; then
+        if grep -q "AwsSolutions*" cdk-nag-output.log; then
           echo "❌ CDK-Nag violations found! Stopping deployment."
           exit 1
         else

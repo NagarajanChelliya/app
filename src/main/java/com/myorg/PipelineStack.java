@@ -1,6 +1,7 @@
 package com.myorg;
 
 import software.amazon.awscdk.*;
+import software.amazon.awscdk.services.codebuild.ComputeType;
 import software.amazon.awscdk.services.codepipeline.*;
 import software.amazon.awscdk.services.codepipeline.actions.*;
 import software.amazon.awscdk.services.codebuild.*;
