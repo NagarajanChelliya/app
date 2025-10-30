@@ -1,8 +1,10 @@
 package com.myorg;
 
 import software.amazon.awscdk.App;
+import software.amazon.awscdk.Aspects;
 import software.amazon.awscdk.Environment;
 import software.amazon.awscdk.StackProps;
+import io.github.cdklabs.cdknag.AwsSolutionsChecks;
 
 import java.util.Arrays;
 
@@ -15,6 +17,8 @@ public class AppApp {
                            //     .build());
                // new AppStack(app, "AppStack");
                 new PipelineStack(app, "PipelineStack");
+
+                Aspects.of(app).add(new AwsSolutionsChecks());//cdk-nag
 
                 app.synth();
         }

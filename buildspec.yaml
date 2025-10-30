@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+      nodejs: 18
+    commands:
+      - echo "Installing AWS CDK CLI and dependencies..."
+      - npm install -g aws-cdk
+      - mvn clean install -DskipTests
+
+  build:
+    commands:
+      - echo "Running cdk-nag compliance checks..."
+      - mvn exec:java -Dexec.mainClass="com.myorg.AppApp" -Dexec.cleanupDaemonThreads=false | tee cdk-nag-output.log
+      - |
+        if grep -q "NagViolation" cdk-nag-output.log; then
+          echo "❌ CDK-Nag violations found! Stopping deployment."
+          exit 1
+        else
+          echo "✅ No violations found."
+        fi
+      - echo "Deploying CDK stack..."
+      - cdk deploy AppStack --require-approval never

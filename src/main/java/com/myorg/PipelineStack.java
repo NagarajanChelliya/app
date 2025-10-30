@@ -48,6 +48,7 @@ public class PipelineStack extends Stack {
         // -------------------------------
         // Build & Deploy Stage
         // -------------------------------
+       /* 
         PipelineProject buildProject = PipelineProject.Builder.create(this, "CDKBuildProject")
                 .buildSpec(BuildSpec.fromObject(Map.of(
                         "version", "0.2",
@@ -62,6 +63,16 @@ public class PipelineStack extends Stack {
                         )
                 )))
                 .build();
+        */
+        // Build & Deploy Stage
+        PipelineProject buildProject = PipelineProject.Builder.create(this, "CDKBuildProject")
+                .buildSpec(BuildSpec.fromSourceFilename("buildspec.yml")) // ✅ External file
+                .environment(BuildEnvironment.builder()
+                        .buildImage(LinuxBuildImage.STANDARD_7_0)
+                        .computeType(BuildEnvironmentComputeType.SMALL)
+                        .build())
+                .build();
+        
 
         CodeBuildAction buildAction = CodeBuildAction.Builder.create()
                 .actionName("CDK_Build_Deploy")
