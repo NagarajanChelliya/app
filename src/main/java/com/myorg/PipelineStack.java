@@ -110,6 +110,11 @@ NagSuppressions.addStackSuppressions(this, List.of(
         .id("AwsSolutions-CB4")
         .reason("Skipping KMS encryption for demo build project.")
         .build()
+        ,
+    NagPackSuppression.builder()
+        .id("AwsSolutions-S10")
+        .reason("Skipping The S3 Bucket or bucket policy does not require requests to use SSL.")
+        .build()
 ));
 
     }

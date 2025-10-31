@@ -12,16 +12,14 @@ phases:
 
   build:
     commands:
-      - echo "Running cdk-nag compliance checks..."
-      #- mvn exec:java -Dexec.mainClass="com.myorg.AppApp" -Dexec.cleanupDaemonThreads=false | tee cdk-nag-output.log
-      #- |
-       # if grep -q "AwsSolutions*" cdk-nag-output.log; then
-         # echo " CDK-Nag violations found! Stopping deployment."
-        #  exit 1
-       # else
-        #  echo " No violations found."
-       # fi
-      - echo "Deploying CDK stack..."
-      - cdk deploy AppStack --require-approval never
-      - echo "Deploying CDK stack..."
+      - echo "Synthesizing CDK template..."
+      - cdk synth > synth-output.txt 2>&1
+
+      # Run compliance check (CDK-Nag)
+      - echo "Running CDK-Nag compliance validation..."
+      - grep -E "AwsSolutions-" synth-output.txt && echo "CDK-Nag violations found!" && exit 1 || echo " No CDK-Nag errors detected."
+
+      # If above passes, proceed to deploy
+      - echo "Deploying stack..."
+      - cdk deploy AppStack --require-approval=never
 
