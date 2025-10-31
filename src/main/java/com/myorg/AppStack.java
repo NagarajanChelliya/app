@@ -29,7 +29,7 @@ public class AppStack extends Stack {
                 .versioned(true) // optional, enables versioning
                 .removalPolicy(software.amazon.awscdk.RemovalPolicy.DESTROY) // optional, for dev/testing
                 .build();
-   /* 
+    
         NagSuppressions.addStackSuppressions(
                 this,
                 Arrays.asList(
@@ -43,7 +43,7 @@ public class AppStack extends Stack {
                                 .build()),
                 true
         );
-    */
+    
    
     }
 }
